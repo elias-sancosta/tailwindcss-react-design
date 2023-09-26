@@ -15,7 +15,7 @@ const Download = () => {
       </section>
 
       {/*  Download Boxes  */}
-      <section id="download-boxes" className="py-32">
+      <section id="download-boxes" className="pb-32 pt-16">
         {/*  Boxes Container  */}
         <div className="relative flex flex-col items-center max-w-5xl mx-auto space-y-10 px-10 md:px-6 md:space-y-0 md:space-x-7 md:flex-row">
           {/*  Box 1  */}

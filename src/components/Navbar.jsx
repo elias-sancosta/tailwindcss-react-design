@@ -1,6 +1,12 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className="container relative mx-auto p-6">
       {/*  Flex Container For Nav Items  */}
@@ -33,16 +39,20 @@ const Navbar = () => {
         <button
           id="menu-btn"
           className="z-30 block md:hidden focus:outline-none hamburger"
+          onClick={toggleMobileMenu}
         >
           <span className="hamburger-top"></span>
           <span className="hamburger-middle"></span>
           <span className="hamburger-bottom"></span>
         </button>
       </div>
+
       {/*  Mobile Menu  */}
       <div
         id="menu"
-        className="fixed inset-0 z-20 hidden flex-col items-center self-end w-full h-full m-h-screen px-6 py-1 pt-24 pb-4 tracking-widest text-white uppercase divide-y divide-gray-500 opacity-90 bg-veryDarkBlue"
+        className={`fixed inset-0 z-20 hidden flex-col items-center self-end w-full h-full m-h-screen px-6 py-1 pt-24 pb-4 tracking-widest text-white uppercase divide-y divide-gray-500 opacity-90 bg-veryDarkBlue ${
+          isMobileMenuOpen ? 'block' : 'hidden'
+        }`}
       >
         <div className="w-full py-3 text-center">
           <a href="#features" className="block hover:text-softRed">
